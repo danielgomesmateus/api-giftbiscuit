@@ -28,12 +28,14 @@ from drf_yasg import openapi
 from apigiftbiscuit.contacts.urls import router as contacts_router
 from apigiftbiscuit.pages.urls import router as pages_router
 from apigiftbiscuit.galleries.urls import router as galleries_router
+from apigiftbiscuit.budgets.urls import router as budgets_router
 
 router = DefaultRouter()
 
 router.registry.extend(contacts_router.registry)
 router.registry.extend(pages_router.registry)
 router.registry.extend(galleries_router.registry)
+router.registry.extend(budgets_router.registry)
 
 schema_view = get_schema_view(
     openapi.Info(

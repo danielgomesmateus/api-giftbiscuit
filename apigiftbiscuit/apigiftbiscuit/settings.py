@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'apigiftbiscuit.core',
     'apigiftbiscuit.contacts',
     'apigiftbiscuit.galleries',
-    'apigiftbiscuit.pages'
+    'apigiftbiscuit.pages',
+    'apigiftbiscuit.budgets'
 ]
 
 X_FRAME_OPTIONS='SAMEORIGIN'

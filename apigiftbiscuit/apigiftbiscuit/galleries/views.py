@@ -1,5 +1,5 @@
 from .models import Album, Photo
-from .serializers import AlbumSerializer, AlbumCreateSerializer, PhotoSerializer
+from .serializers import AlbumSerializer, AlbumCreateUpdateSerializer, PhotoSerializer
 
 from rest_framework.viewsets import ModelViewSet
 
@@ -8,7 +8,8 @@ class AlbumView(ModelViewSet):
     queryset = Album.objects.filter(status=True)
     default_serializer_class = AlbumSerializer
     serializer_classes = {
-        'create': AlbumCreateSerializer
+        'create': AlbumCreateUpdateSerializer,
+        'update': AlbumCreateUpdateSerializer
     }
     http_method_names = ['get', 'post', 'put', 'delete']
     lookup_field = 'slug'

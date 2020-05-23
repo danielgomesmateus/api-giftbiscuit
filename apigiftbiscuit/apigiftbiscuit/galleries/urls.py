@@ -6,4 +6,4 @@ app_name = 'galleries'
 
 router = SimpleRouter()
 router.register('albums', AlbumView)
-router.register('photos', PhotoView)
+router.register('albums-photos', PhotoView)
