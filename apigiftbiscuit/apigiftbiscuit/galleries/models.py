@@ -35,4 +35,4 @@ class Photo(models.Model):
         ordering = ['-id']
 
     def __str__(self):
-        return '{}'.format(self.photo)
+        return self.photo

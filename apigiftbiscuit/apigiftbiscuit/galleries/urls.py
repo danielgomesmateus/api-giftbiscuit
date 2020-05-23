@@ -1,8 +1,9 @@
 from rest_framework.routers import SimpleRouter
 
-from .views import GalleryView
+from .views import AlbumView, PhotoView
 
 app_name = 'galleries'
 
 router = SimpleRouter()
-router.register('galleries', GalleryView)
+router.register('albums', AlbumView)
+router.register('photos', PhotoView)

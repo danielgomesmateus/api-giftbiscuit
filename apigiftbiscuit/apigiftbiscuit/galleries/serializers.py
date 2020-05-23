@@ -8,19 +8,29 @@ class PhotoSerializer(ModelSerializer):
         model = Photo
         fields = [
             'photo',
-            'description_short'
+            'description_short',
+            'album'
         ]
 
 
 class AlbumSerializer(ModelSerializer):
     photos = PhotoSerializer(many=True)
-
+    
     class Meta:
         model = Album
         fields = [
             'name',
             'description_short',
             'cover_image',
-            'slug',
-            'photos'
+            'slug'
+        ]
+
+class AlbumCreateSerializer(ModelSerializer):
+    class Meta:
+        model = Album
+        fields = [
+            'name',
+            'description_short',
+            'cover_image',
+            'slug'
         ]

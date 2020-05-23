@@ -30,9 +30,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_interface',
     'colorfield',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -40,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'drf_yasg',
-    'froala_editor',
     'corsheaders',
     'apigiftbiscuit.core',
     'apigiftbiscuit.contacts',
@@ -149,9 +146,9 @@ REST_FRAMEWORK = {
     }
 }
 
-REDOC_SETTINGS = {
-   'LAZY_RENDERING': False,
-   'PATH_IN_MIDDLE': True
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': None,
+    'SUPPORTED_SUBMIT_METHODS': []
 }
 
 AWS_ACCESS_KEY_ID = ''
