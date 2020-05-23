@@ -11,7 +11,7 @@ class Categorie(models.Model):
 
 class Budget(models.Model):
     id = models.AutoField(primary_key=True)
-    categorie = models.ForeignKey(Categorie, null=True, related_name='budgets', on_delete=models.CASCADE)
+    categorie = models.ForeignKey(Categorie, related_name='budgets', on_delete=models.CASCADE)
     name = models.CharField('Nome completo:', max_length=50)
     email = models.EmailField('Email de contato:', max_length=40)
     phone = models.CharField('Telefone de contato:', max_length=14)

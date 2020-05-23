@@ -22,7 +22,7 @@ class Album(models.Model):
 
 class Photo(models.Model):
     id = models.AutoField(primary_key=True)
-    album = models.ForeignKey(Album, null=True, related_name='photos', on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, related_name='photos', on_delete=models.CASCADE)
     photo = models.ImageField('Foto:', upload_to='photos')
     description_short = models.CharField('Descrição curta:', max_length=50, blank=True, null=True)
     status = models.BooleanField(default=True)

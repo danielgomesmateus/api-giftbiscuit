@@ -17,6 +17,6 @@ class BudgetView(ModelViewSet):
         return self.serializer_classes.get(self.action, self.default_serializer_class)
 
 class CategorieView(ModelViewSet):
-    queryset = Budget.objects.all()
+    queryset = Categorie.objects.all()
     serializer_class = CategorieSerializer
     http_method_names = ['get', 'post', 'put', 'delete']
