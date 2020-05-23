@@ -7,10 +7,11 @@ from rest_framework.viewsets import ModelViewSet
 
 class CreateOnly(BasePermission):
     def has_permission(self, request, view):
-        return request.method in ('POST')
+        return request.method in ('POST',)
+
 
 class BudgetView(ModelViewSet):
-    permission_classes = [IsAuthenticated|CreateOnly]
+    permission_classes = [IsAuthenticated | CreateOnly]
 
     queryset = Budget.objects.all()
     default_serializer_class = BudgetSerializer
@@ -22,6 +23,7 @@ class BudgetView(ModelViewSet):
 
     def get_serializer_class(self):
         return self.serializer_classes.get(self.action, self.default_serializer_class)
+
 
 class CategorieView(ModelViewSet):
     permission_classes = [IsAuthenticated]

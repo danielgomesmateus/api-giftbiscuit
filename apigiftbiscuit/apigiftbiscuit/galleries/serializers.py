@@ -26,6 +26,7 @@ class AlbumSerializer(ModelSerializer):
             'photos'
         ]
 
+
 class AlbumCreateUpdateSerializer(ModelSerializer):
     class Meta:
         model = Album

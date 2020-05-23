@@ -3,6 +3,7 @@ from .models import Contact
 
 import re
 
+
 class ContactSerializer(serializers.ModelSerializer):
     
     class Meta:
@@ -15,7 +16,7 @@ class ContactSerializer(serializers.ModelSerializer):
         )
 
     def validate_name(self, value):
-        regex =  "[a-zA-Z]+$"
+        regex = "[a-zA-Z]+$"
 
         if not value is None:
             if re.search(regex, value):

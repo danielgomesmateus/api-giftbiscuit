@@ -9,8 +9,9 @@ class ReadOnly(BasePermission):
     def has_permission(self, request, view):
         return request.method in SAFE_METHODS
 
+
 class PageView(ModelViewSet):
-    permission_classes = [IsAuthenticated|ReadOnly]
+    permission_classes = [IsAuthenticated | ReadOnly]
 
     queryset = Page.objects.filter(status=True)
     serializer_class = PageSerializer

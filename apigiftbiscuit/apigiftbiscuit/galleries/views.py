@@ -4,12 +4,14 @@ from .serializers import AlbumSerializer, AlbumCreateUpdateSerializer, PhotoSeri
 from rest_framework.permissions import BasePermission, IsAuthenticated, SAFE_METHODS
 from rest_framework.viewsets import ModelViewSet
 
+
 class ReadOnly(BasePermission):
     def has_permission(self, request, view):
         return request.method in SAFE_METHODS
 
+
 class AlbumView(ModelViewSet):
-    permission_classes = [IsAuthenticated|ReadOnly]
+    permission_classes = [IsAuthenticated | ReadOnly]
 
     queryset = Album.objects.filter(status=True)
     default_serializer_class = AlbumSerializer

@@ -10,7 +10,8 @@ class CategorieSerializer(ModelSerializer):
             'name',
             'status'
         ]
-        
+
+
 class BudgetSerializer(ModelSerializer):
     categorie = CategorieSerializer()
 
@@ -23,6 +24,7 @@ class BudgetSerializer(ModelSerializer):
             'description',
             'categorie'
         ]
+
 
 class BudgetCreateUpdateSerializer(ModelSerializer):
     class Meta:

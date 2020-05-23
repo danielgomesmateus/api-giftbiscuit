@@ -4,12 +4,14 @@ from .serializers import ContactSerializer
 from rest_framework.permissions import BasePermission, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 
+
 class CreateOnly(BasePermission):
     def has_permission(self, request, view):
-        return request.method in ('POST')
+        return request.method in ('POST',)
+
 
 class ContactView(ModelViewSet):
-    permission_classes = [IsAuthenticated|CreateOnly]
+    permission_classes = [IsAuthenticated | CreateOnly]
 
     queryset = Contact.objects.all()
     serializer_class = ContactSerializer
