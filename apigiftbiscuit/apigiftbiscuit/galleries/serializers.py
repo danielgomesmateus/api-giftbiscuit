@@ -22,7 +22,8 @@ class AlbumSerializer(ModelSerializer):
             'name',
             'description_short',
             'cover_image',
-            'slug'
+            'slug',
+            'photos'
         ]
 
 class AlbumCreateSerializer(ModelSerializer):
