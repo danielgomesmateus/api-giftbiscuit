@@ -3,6 +3,7 @@ boto3==1.12.41
 certifi==2019.11.28
 chardet==3.0.4
 Django==3.0.4
+django-cors-headers==3.2.1
 djangorestframework==3.11.0
 djangorestframework-jwt==1.11.0
 django-storages==1.9.1

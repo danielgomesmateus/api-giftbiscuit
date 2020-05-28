@@ -2,10 +2,23 @@ version: '3.1'
 
 services:
 
+  web:
+    build: .
+    command: python apigiftbiscuit/manage.py runserver 0.0.0.0:8082 --settings=apigiftbiscuit.local_settings
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8082:8082"
+    links:
+      - db
+    depends_on: 
+      - db
+
   db:
     image: mysql:5.7
     command: --default-authentication-plugin=mysql_native_password
-    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_USER: root
@@ -14,8 +27,5 @@ services:
     ports:
       - 3306:3306
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+volumes:
+  mysql_data:

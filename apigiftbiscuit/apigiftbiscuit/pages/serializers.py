@@ -8,5 +8,6 @@ class PageSerializer(serializers.ModelSerializer):
         fields = (
             'title', 
             'content',
-            'slug'
+            'slug',
+            'status'
         )
