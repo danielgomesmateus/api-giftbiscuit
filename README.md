@@ -7,6 +7,7 @@
 - certifi==2019.11.28
 - chardet==3.0.4
 - Django==3.0.4
+- django-cors-headers==3.2.1
 - djangorestframework==3.11.0
 - djangorestframework-jwt==1.11.0
 - django-storages==1.9.1
@@ -21,15 +22,7 @@
 - sqlparse==0.3.1
 - urllib3==1.25.8
 
-2) Utilize o comando abaixo para subir um banco de dados MySQL via Docker:
-
-```
-docker-compose up
-```
-
-Obs.: O dump do banco está na pasta utils/DB
-
-3) Crie um arquivo com o nome "local_settings.py" e adicione o conteúdo abaixo:
+2) Crie um arquivo com o nome "local_settings.py" e adicione o conteúdo abaixo:
 
 ```
 from .settings import *
@@ -70,25 +63,25 @@ DEFAULT_FILE_STORAGE = 'apigiftbiscuit.storage_backends.MediaStorage'
 
 Complete com as informações relativas ao seu ambiente.
 
-4) Com a conexão ao banco realizada, execute o comando abaixo:
+3) Para iniciar o projeto, utilize o comando abaixo:
+
+```
+docker-compose up -d --build
+```
+
+4) Com a imagem gerada e os serviços ativos, execute o comando abaixo dentro do container web:
 
 ```
 python3 manage.py migrate --settings=apigiftbiscuit.local_settings
 ```
 
-5) Execute o comando abaixo para definir o seu usuário administrador:
+5) Execute o comando abaixo dentro do container web para definir o seu usuário administrador:
 
 ```
 python3 manage.py createsuperuser --settings=apigiftbiscuit.local_settings
 ```
 
-6) Para iniciar o projeto, utilize o comando abaixo:
-
-```
-python3 manage.py runserver --settings=apigiftbiscuit.local_settings
-```
-
-7) Para visualizar a documentação da API, acesse o endereço abaixo:
+6) Para visualizar a documentação da API, acesse o endereço abaixo:
 
 ```
 http://localhost:8000/v1/docs
