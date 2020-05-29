@@ -47,10 +47,6 @@ AWS_S3_REGION_NAME=
 
 AWS_LOCATION=
 AWS_QUERYSTRING_AUTH=
-
-STATICFILES_STORAGE=
-
-DEFAULT_FILE_STORAGE=
 ```
 
 Complete com as informações relativas ao seu ambiente.

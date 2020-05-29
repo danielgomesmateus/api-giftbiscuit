@@ -167,7 +167,7 @@ AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
 AWS_LOCATION = os.environ.get('AWS_LOCATION')
 AWS_QUERYSTRING_AUTH = os.environ.get('AWS_QUERYSTRING_AUTH')
 
-STATICFILES_STORAGE = os.environ.get('STATICFILES_STORAGE')
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
+DEFAULT_FILE_STORAGE = 'apithaisminas.storage_backends.MediaStorage'
