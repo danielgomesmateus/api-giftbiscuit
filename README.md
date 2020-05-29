@@ -73,7 +73,13 @@ python3 manage.py migrate
 python3 manage.py createsuperuser
 ```
 
-6) Para visualizar a documentação da API, acesse o endereço abaixo:
+6) Para visualizar o projeto, acesse o endereço abaixo:
+
+```
+http://localhost:8082/v1/
+```
+
+7) Para visualizar a documentação da API, acesse o endereço abaixo:
 
 ```
 http://localhost:8082/v1/docs
