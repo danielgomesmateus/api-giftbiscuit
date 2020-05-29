@@ -12,53 +12,45 @@
 - djangorestframework-jwt==1.11.0
 - django-storages==1.9.1
 - drf-yasg==1.17.1
+- gunicorn==20.0.4
 - idna==2.9
 - jsonpath==0.82
 - mysqlclient==1.4.6
 - Pillow==7.0.0
+- psycopg2-binary==2.8.5
 - pytz==2019.3
 - requests==2.23.0
 - six==1.14.0
 - sqlparse==0.3.1
 - urllib3==1.25.8
 
-2) Crie um arquivo com o nome "local_settings.py" e adicione o conteúdo abaixo:
+2) Crie dois arquivo com o nome ".env.dev" e ".env.prod" e adicione o conteúdo abaixo:
 
 ```
-from .settings import *
+DEBUG=
+SECRET_KEY=
+DJANGO_ALLOWED_HOSTS=
 
-SECRET_KEY = ''
+SQL_ENGINE=
+SQL_DATABASE=
+SQL_USER=
+SQL_PASSWORD=
+SQL_HOST=
+SQL_PORT=
 
-DEBUG = True
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_ACCESS_KEY=
 
-ALLOWED_HOSTS = ['*']
+AWS_STORAGE_BUCKET_NAME=
+AWS_DEFAULT_ACL=
+AWS_S3_REGION_NAME=
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'db',
-        'PORT': 3306
-    }
-}
+AWS_LOCATION=
+AWS_QUERYSTRING_AUTH=
 
-AWS_ACCESS_KEY_ID = ''
-AWS_SECRET_ACCESS_KEY = ''
+STATICFILES_STORAGE=
 
-AWS_STORAGE_BUCKET_NAME = ''
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_DEFAULT_ACL = ''
-AWS_S3_REGION_NAME = ''
-
-AWS_LOCATION = ''
-AWS_QUERYSTRING_AUTH = ''
-
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
-DEFAULT_FILE_STORAGE = 'apigiftbiscuit.storage_backends.MediaStorage'
+DEFAULT_FILE_STORAGE=
 ```
 
 Complete com as informações relativas ao seu ambiente.
@@ -84,5 +76,5 @@ python3 apigiftbiscuit/manage.py createsuperuser --settings=apigiftbiscuit.local
 6) Para visualizar a documentação da API, acesse o endereço abaixo:
 
 ```
-http://localhost:8000/v1/docs
+http://localhost:8082/v1/docs
 ```

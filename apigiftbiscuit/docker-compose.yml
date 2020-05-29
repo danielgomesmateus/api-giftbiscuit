@@ -4,11 +4,13 @@ services:
 
   web:
     build: .
-    command: python apigiftbiscuit/manage.py runserver 0.0.0.0:8082 --settings=apigiftbiscuit.local_settings
+    command: gunicorn apigiftbiscuit.wsgi:application --bind 0.0.0.0:8082
     volumes:
       - .:/var/www/html
     ports:
-      - "8082:8082"
+      - '8082:8082'
+    env_file:
+      - ../.env.dev
     links:
       - db
     depends_on: 

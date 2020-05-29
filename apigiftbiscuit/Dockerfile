@@ -4,6 +4,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 RUN mkdir -p /var/www/html
+
 WORKDIR /var/www/html
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y \
