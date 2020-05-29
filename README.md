@@ -64,13 +64,13 @@ docker-compose up -d --build
 4) Com a imagem gerada e os serviços ativos, execute o comando abaixo dentro do container web:
 
 ```
-python3 apigiftbiscuit/manage.py migrate --settings=apigiftbiscuit.local_settings
+python3 manage.py migrate
 ```
 
 5) Execute o comando abaixo dentro do container web para definir o seu usuário administrador:
 
 ```
-python3 apigiftbiscuit/manage.py createsuperuser --settings=apigiftbiscuit.local_settings
+python3 manage.py createsuperuser
 ```
 
 6) Para visualizar a documentação da API, acesse o endereço abaixo:
